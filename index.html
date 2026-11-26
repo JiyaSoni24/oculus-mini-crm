@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCULUS | See Beyond. Connect Better.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">◉</div>
+                <h2>OCULUS<span>.</span></h2>
+            </div>
+
+            <p class="side-label">YOUR SPACE</p>
+            <a class="nav-item active" href="#">
+                <span>✧</span> Overview
+            </a>
+
+            <div class="sidebar-note">
+                <div class="mini-orb">✦</div>
+                <p>Every connection begins with a possibility.</p>
+            </div>
+
+            <div class="sidebar-bottom">
+                <span>✧</span> See Beyond. Connect Better.
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR COMMAND CENTRE ✦</p>
+                    <h1>Welcome to <span>Oculus.</span></h1>
+                    <p class="subtitle">A clearer view of every opportunity.</p>
+                </div>
+                <button class="primary-btn" onclick="openModal()">
+                    <span>＋</span> Create New Lead
+                </button>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="hero-tag">✧ THE ART OF CONNECTION</span>
+                    <h2>Discover opportunities.<br>
+                        <span>Build possibilities.</span>
+                    </h2>
+                    <p>Your connections are more than contacts.
+                       They're the beginning of something extraordinary.</p>
+                </div>
+                <div class="hero-orb">
+                    <div class="orb-ring ring-one"></div>
+                    <div class="orb-ring ring-two"></div>
+                    <div class="orb-core">✧</div>
+                    <span class="orb-star star-one">✦</span>
+                    <span class="orb-star star-two">✧</span>
+                    <span class="orb-star star-three">✦</span>
+                </div>
+            </section>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Leads</span>
+                        <div class="stat-icon">♧</div>
+                    </div>
+                    <h2 id="totalLeads">0</h2>
+                    <p>✧ All your connections</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>New Leads</span>
+                        <div class="stat-icon">✦</div>
+                    </div>
+                    <h2 id="newLeads">0</h2>
+                    <p>✧ Fresh opportunities</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Converted Leads</span>
+                        <div class="stat-icon">✧</div>
+                    </div>
+                    <h2 id="convertedLeads">0</h2>
+                    <p>✧ Connections that grew</p>
+                </div>
+            </section>
+
+            <section class="leads-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR NETWORK</p>
+                        <h2>Lead Universe <span>✧</span></h2>
+                        <p>Explore and manage your connections.</p>
+                    </div>
+                    <div class="live-indicator">
+                        <span></span> LIVE OVERVIEW
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <input type="text" id="searchInput"
+                        placeholder="⌕  Search name or email...">
+
+                    <select id="statusFilter">
+                        <option value="All">All Statuses</option>
+                        <option value="New">New</option>
+                        <option value="Contacted">Contacted</option>
+                        <option value="Converted">Converted</option>
+                    </select>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>EMAIL</th>
+                                <th>PHONE</th>
+                                <th>BUSINESS</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTable"></tbody>
+                    </table>
+                </div>
+
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">✧</div>
+                    <h3>Your universe is waiting.</h3>
+                    <p>Add your first lead and let the possibilities begin.</p>
+                </div>
+            </section>
+
+            <footer class="footer">
+                Made with ✦ by OCULUS
+                <span>SEE BEYOND. CONNECT BETTER.</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Add/Edit Lead Modal -->
+    <div class="modal" id="leadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <p class="eyebrow">CREATE A CONNECTION ✧</p>
+                    <h2 id="modalTitle">Add New Lead</h2>
+                </div>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+
+            <form id="leadForm">
+                <input type="hidden" id="leadId">
+
+                <label>Full Name</label>
+                <input type="text" id="name" required maxlength="100"
+                    placeholder="Enter full name">
+
+                <label>Email Address</label>
+                <input type="email" id="email" required
+                    placeholder="Enter email address">
+
+                <label>Phone Number</label>
+                <input type="tel" id="phone" required
+                    placeholder="Enter phone number">
+
+                <label>Business Name</label>
+                <input type="text" id="businessName" required maxlength="150"
+                    placeholder="Enter business name">
+
+                <label>Lead Status</label>
+                <select id="status">
+                    <option value="New">New</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Converted">Converted</option>
+                </select>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn"
+                        onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="primary-btn">Save Connection ✧</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
